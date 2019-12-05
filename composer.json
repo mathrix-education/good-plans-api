@@ -1,14 +1,17 @@
 {
-    "name": "laravel/lumen",
+    "name": "mathrix-education/good-plans-api",
     "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "keywords": [
+        "framework",
+        "laravel",
+        "lumen"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": "^7.2",
         "laravel/lumen-framework": "^6.0",
-        "mathrix/lumen-chainer": "1.2.0",
-        "mathrix/lumen-zero": "3.0.0-beta.3"
+        "mathrix-education/lumen-zero": "3.0.0-beta.3"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",
@@ -29,11 +32,6 @@
             "tests/"
         ]
     },
-    "scripts": {
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ]
-    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
@@ -44,27 +42,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:mathrix-education/lumen-chainer.git"
-        },
-        {
-            "type": "vcs",
             "url": "git@github.com:mathrix-education/lumen-jwt-auth.git"
         },
         {
             "type": "vcs",
             "url": "git@github.com:mathrix-education/lumen-zero.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:mathrix-education/lumen-zero.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:mathrix-education/openapi-assertions.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:mathrix-education/openapi-processor.git"
         }
     ]
 }
