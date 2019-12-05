@@ -1,8 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Models\Institution;
+use App\Models\Plan;
+use App\Models\User;
+use Mathrix\Lumen\Zero\Database\BaseTableSeeder;
 
-class DatabaseSeeder extends Seeder
+
+class DatabaseSeeder extends BaseTableSeeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        $this->seedFromFactory(User::class, 100);
+        $this->seedFromFactory(Institution::class, 20);
+        $this->seedFromFactory(Plan::class, 50);
     }
 }

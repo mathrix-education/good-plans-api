@@ -4,7 +4,9 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use phpDocumentor\Reflection\Location;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Mathrix\Lumen\Zero\Models\BaseModel;
+
 
 /**
  * @property int            $id
@@ -19,9 +21,11 @@ use phpDocumentor\Reflection\Location;
  * @property string|null    $video_id
  * @property Carbon         $created_at
  * @property Carbon         $updated_at
+ * ---
+ * @property Institution    $institution
  */
 
-class Plan
+class Plan extends BaseModel
 {
     /** @var bool If timestamps (created_at and updated_at) should be used */
     public $timestamps = true;
@@ -38,4 +42,12 @@ class Plan
         'filters',
         'video_id',
     ];
+
+    /**
+     * BelongsTo Institution
+     */
+    public function institution(): BelongsTo
+    {
+        return $this->belongsTo(Institution::class);
+    }
 }

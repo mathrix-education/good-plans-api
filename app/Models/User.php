@@ -5,6 +5,7 @@ namespace App\Models;
 
 
 use Carbon\Carbon;
+use Mathrix\Lumen\Zero\Models\BaseModel;
 
 /**
  * @property int            $id
@@ -19,7 +20,7 @@ use Carbon\Carbon;
  *
  */
 
-class User
+class User extends BaseModel
 {
     /** @var bool If timestamps (created_at and updated_at) should be used */
     public $timestamps = true;
