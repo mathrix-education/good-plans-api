@@ -1,11 +1,10 @@
 <?php
 
-
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Mathrix\Lumen\Zero\Models\BaseModel;
+use phpDocumentor\Reflection\Location;
 
 
 /**
@@ -24,7 +23,6 @@ use Mathrix\Lumen\Zero\Models\BaseModel;
  * ---
  * @property Institution    $institution
  */
-
 class Plan extends BaseModel
 {
     /** @var bool If timestamps (created_at and updated_at) should be used */

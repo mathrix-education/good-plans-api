@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Models;
-
 
 use Carbon\Carbon;
 use Mathrix\Lumen\Zero\Models\BaseModel;
@@ -17,9 +15,7 @@ use Mathrix\Lumen\Zero\Models\BaseModel;
  * @property string|null    $universities
  * @property Carbon         $created_at
  * @property Carbon         $updated_at
- *
  */
-
 class User extends BaseModel
 {
     /** @var bool If timestamps (created_at and updated_at) should be used */
