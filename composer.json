@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": "^7.2",
-        "laravel/lumen-framework": "^6.0"
+        "laravel/lumen-framework": "^6.0",
+        "mathrix/lumen-chainer": "1.2.0",
+        "mathrix/lumen-zero": "3.0.0-beta.3"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",
@@ -38,5 +40,31 @@
         "optimize-autoloader": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:mathrix-education/lumen-chainer.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:mathrix-education/lumen-jwt-auth.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:mathrix-education/lumen-zero.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:mathrix-education/lumen-zero.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:mathrix-education/openapi-assertions.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:mathrix-education/openapi-processor.git"
+        }
+    ]
 }
