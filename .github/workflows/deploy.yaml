@@ -30,7 +30,9 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
       - name: Compile docs
-        run: npx redoc-cli bundle docs/output.yaml -o resources/views/docs/index.html
+        run: |
+          composer compile:docs
+          npx redoc-cli bundle docs/output.yaml -o resources/views/docs/index.html
       - name: Build Docker Image
         run: docker build -t eu.gcr.io/${{ secrets.GCLOUD_PROJECT }}/good-plans-api:${{ steps.context.outputs.short_sha }} .
       - name: Push Docker Image to Google Cloud Container Registry
