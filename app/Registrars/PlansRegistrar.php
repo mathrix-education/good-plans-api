@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Registrars;
 
+use App\Controllers\PlansController;
 use Mathrix\Lumen\Zero\Exceptions\InvalidArgument;
 use Mathrix\Lumen\Zero\Registrars\BaseRegistrar;
 
@@ -21,5 +22,7 @@ class PlansRegistrar extends BaseRegistrar
             'update' => null,
             'delete' => null,
         ]);
+
+        $this->post('/plans/{planId}/rate', PlansController::class . '@rate');
     }
 }

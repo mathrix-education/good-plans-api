@@ -4,25 +4,25 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Mathrix\Lumen\Zero\Models\BaseModel;
 
-
 /**
- * @property int            $id
- * @property string|null    $title
- * @property string|null    $description
- * @property string|null    $link
- * @property int|null       $institution_id
- * @property Carbon|null    $starting_at
- * @property Carbon|null    $ending_at
- * @property array          $cities
- * @property array          $categories
- * @property array          $filters
- * @property string|null    $video_id
- * @property Carbon         $created_at
- * @property Carbon         $updated_at
+ * @property int         $id
+ * @property string|null $title
+ * @property string|null $description
+ * @property string|null $link
+ * @property int|null    $institution_id
+ * @property Carbon|null $starting_at
+ * @property Carbon|null $ending_at
+ * @property array       $cities
+ * @property array       $categories
+ * @property array       $filters
+ * @property string|null $video_id
+ * @property Carbon      $created_at
+ * @property Carbon      $updated_at
  * ---
- * @property Institution    $institutions
+ * @property Institution $institutions
  */
 class Plan extends BaseModel
 {
@@ -43,15 +43,17 @@ class Plan extends BaseModel
     ];
 
     protected $attributes = [
-        'cities'        => '[]',
-        'filters'       => '[]',
-        'categories'    => '[]'
+        'cities'     => '[]',
+        'filters'    => '[]',
+        'categories' => '[]',
     ];
 
+    protected $appends = ['rating_mean'];
+
     protected $casts = [
-        'cities'        => 'array',
-        'categories'    => 'array',
-        'filters'       => 'array',
+        'cities'     => 'array',
+        'categories' => 'array',
+        'filters'    => 'array',
     ];
 
     /**
@@ -60,5 +62,20 @@ class Plan extends BaseModel
     public function institution(): BelongsTo
     {
         return $this->belongsTo(Institution::class);
+    }
+
+    /**
+     * @return HasMany<Rating>
+     */
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function getRatingMeanAttribute(): float
+    {
+        $ratings = $this->ratings()->get(['value'])->pluck('value');
+
+        return round($ratings->sum() / $ratings->count(), 2);
     }
 }
