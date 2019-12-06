@@ -15,9 +15,10 @@ use Mathrix\Lumen\Zero\Models\BaseModel;
  * @property int|null    $institution_id
  * @property Carbon|null $starting_at
  * @property Carbon|null $ending_at
- * @property array       $cities
- * @property array       $categories
- * @property array       $filters
+ * @property int         $age_min
+ * @property int         $age_max
+ * @property string      $city
+ * @property string      $category
  * @property string|null $video_id
  * @property Carbon      $created_at
  * @property Carbon      $updated_at
@@ -42,19 +43,7 @@ class Plan extends BaseModel
         'video_id',
     ];
 
-    protected $attributes = [
-        'cities'     => '[]',
-        'filters'    => '[]',
-        'categories' => '[]',
-    ];
-
     protected $appends = ['rating_mean'];
-
-    protected $casts = [
-        'cities'     => 'array',
-        'categories' => 'array',
-        'filters'    => 'array',
-    ];
 
     /**
      * BelongsTo Institution
@@ -72,13 +61,9 @@ class Plan extends BaseModel
         return $this->hasMany(Rating::class);
     }
 
-    public function getRatingMeanAttribute(): ?float
+    public function getRatingMeanAttribute(): float
     {
         $ratings = $this->ratings()->get(['value'])->pluck('value');
-
-        if ($ratings->count() == 0) {
-            return null;
-        }
 
         return round($ratings->sum() / $ratings->count(), 2);
     }

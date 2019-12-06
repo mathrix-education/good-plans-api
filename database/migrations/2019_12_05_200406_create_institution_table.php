@@ -17,7 +17,6 @@ class CreateInstitutionTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
-            $table->json('cities');
             $table->timestamps();
         });
     }

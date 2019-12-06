@@ -19,15 +19,6 @@ use Mathrix\Lumen\Zero\Models\BaseModel;
 class Rating extends BaseModel
 {
     protected $fillable = ['value', 'plan_id', 'user_id'];
-
-    /**
-     * @return BelongsTo<User>
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
     /**
      * @return BelongsTo<Plan>
      */

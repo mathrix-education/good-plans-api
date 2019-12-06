@@ -23,16 +23,14 @@ properties:
     description: The institution which post the plan.
     type: string
     example: SNCF
-  cities:
+  city:
     description: The cities where the plan is available
-    type: array
-    items:
-      type: string
-  categories:
+    type: string
+    example: Paris
+  category:
     description: The categories related to the plan
-    type: array
-    items:
-      type: string
+    type: string
+    example: Logement
   starting_at:
     description: The starting date of the plan
     type: string
@@ -41,6 +39,14 @@ properties:
     description: The ending date of the plan
     type: string
     format: date-time
+  age_min:
+    description: The minimum age.
+    type: integer
+    example: 18
+  age_max:
+    description: The maximum age.
+    type: integer
+    example: 25
   created_at:
     description: The date/time when the object was created.
     type: string
@@ -54,18 +60,8 @@ properties:
   video_id:
     description: The video link describing the procedure to subscribe to the plan
     type: string
-  filters:
-    description: The main requirements to subscribe to the plan
-    type: object
-    properties:
-      age_min:
-        description: The minimum age to subscribe to the plan
-        type: int
-      age_max:
-        description: The maximum age to subscribe to the plan
-        type: int
-      universities:
-        description: The universities allow to subscribe to the plan
-        type: array
-        items:
-          type: string
+  university:
+    description: The university, if any
+    type: string
+    example: Paris Sud III
+    nullable: true

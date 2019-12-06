@@ -21,10 +21,12 @@ class CreatePlanTable extends Migration
             $table->unsignedBigInteger('institution_id');
             $table->date('starting_at')->nullable();
             $table->date('ending_at')->nullable();
-            $table->json('cities');
-            $table->json('categories');
-            $table->json('filters');
+            $table->unsignedTinyInteger('age_min')->default(0);
+            $table->unsignedTinyInteger('age_max')->default(100);
+            $table->string('city');
+            $table->string('category');
             $table->string('video_id')->nullable();
+            $table->string('university')->nullable();
             $table->timestamps();
 
             // Foreign keys
