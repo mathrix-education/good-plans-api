@@ -1,4 +1,4 @@
 <?php
 return [
-    'App\\Models\\User' => 'App\\Observers\\UserPolicy'
+    'App\\Models\\User' => 'App\\Observers\\UserObserver'
 ];

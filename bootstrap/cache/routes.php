@@ -4,7 +4,14 @@ return [
         'POST',
         '/auth/login',
         [
-            'uses' => ''
+            'uses' => 'App\\Controllers\\AuthController@login'
+        ]
+    ],
+    [
+        'POST',
+        '/auth/forgot',
+        [
+            'uses' => 'App\\Controllers\\AuthController@forgot'
         ]
     ],
     [
