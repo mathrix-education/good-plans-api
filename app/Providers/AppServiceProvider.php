@@ -39,6 +39,5 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(RegistrarServiceProvider::class);
 
         $this->app->register(CorsServiceProvider::class);
-        $this->app->register(JWTAuthServiceProvider::class);
     }
 }

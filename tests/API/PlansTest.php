@@ -3,8 +3,6 @@
 namespace Tests\API;
 
 use App\Models\Plan;
-use App\Models\User;
-use Mathrix\Lumen\JWT\Auth\JWT;
 use Mathrix\Lumen\Zero\Testing\Traits\CRUDAuto;
 use Tests\APIStatelessTestCase;
 
@@ -31,6 +29,6 @@ class PlansTest extends APIStatelessTestCase
             'value' => 3,
         ]);
 
-        $this->assertInDatabase('ratings', ['plan_id' => $planId, 'user_id' => $user->id, 'value' => 3]);
+        $this->assertInDatabase('ratings', ['plan_id' => $planId, 'value' => 3]);
     }
 }

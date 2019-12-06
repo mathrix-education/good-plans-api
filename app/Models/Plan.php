@@ -36,10 +36,12 @@ class Plan extends BaseModel
         'description',
         'link',
         'institution_id',
+        'age_min',
+        'age_max',
+        'city',
         'ending_at',
         'locations',
         'categories',
-        'filters',
         'video_id',
     ];
 

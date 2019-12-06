@@ -27,15 +27,6 @@ class Institution extends BaseModel
     protected $fillable = [
         'name',
         'description',
-        'cities',
-    ];
-
-    protected $attributes = [
-        'cities' => '[]',
-    ];
-
-    protected $casts = [
-        'cities'    => 'array',
     ];
 
     public function plans(): HasMany
