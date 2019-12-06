@@ -7,6 +7,12 @@ Mathrix Good Plan REST API, based on the [Lumen framework](https://lumen.laravel
 | master | [api.good-plans.mathrix.fr](https://api.good-plans.mathrix.fr) | [![Development API version][master-version-img]][master-version-link] |
 | dev | [dev.api.good-plans.mathrix.fr](https://dev.api.good-plans.mathrix.fr) | [![Development API version][dev-version-img]][dev-version-link] |
 
+
+[master-version-img]: https://api.mathrixdrive.fr/badges/version "Production API version"
+[master-version-link]: https://github.com/mathrix-education/drive-api/tree/master
+[dev-version-img]: https://dev.api.mathrixdrive.fr/badges/version "Development API version"
+[dev-version-link]: https://github.com/mathrix-education/drive-api/tree/dev
+
 ## Contributors
 
 - [Mathieu Bour](https://github.com/mathieu-bour) (maintainer), Vice-CTO @mathrix-team
@@ -68,16 +74,29 @@ composer test:cov  # runs tests with code-coverage enable
 ### Deployment
 
 This project is compiled inside a docker container and deployed through a pipeline using Github Actions.
+
+
 To generate the corresponding docker image, run in root path
 
 ```bash
 docker build -t good-planAPI .
 ```
 
+Before running the image, make sure you have the following informations. Also, don't forget to seed your database.
+
+| Variable | Value | Default |
+|----------|-------|---------|
+| DB_CONNECTION | Type of database used | mysql |
+| DB_HOST | URL of the database host | - |
+| DB_DATABASE | Name of the database | - |
+| DB_USERNAME | Name of the database user| - |
+| DB_PASSWORD | Password of the corresponding database user | - |
+| DB_PORT | Port used to reach the database | 3306 |
+
 Then, to run the image 
 
 ```bash
-docker run -i good-planAPI good-planAPI
+docker run -i good-planAPI good-planAPI -e "DB_CONNECTION=$db_connection" -e "DB_HOST=$db_host" -e "DB_DATABASE=$db_database" -e "DB_USERNAME=$db_username" -e "DB_PASSWORD=$db_password" -e "DB_PORT=$db_port"
 ```
 
 This image will be listen by default on port 8080
