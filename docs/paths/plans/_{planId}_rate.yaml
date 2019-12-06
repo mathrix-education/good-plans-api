@@ -1,0 +1,28 @@
+post:
+  summary: Rate a plan
+  parameters:
+    - name: 'planId'
+      in: path
+      description: 'The plan id.'
+      required: true
+      schema:
+        type: integer
+        example: 15
+  responses:
+    '200':
+      description: The deletion result.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                description: If the deletion was sucessful.
+                type: boolean
+                default: true
+              message:
+                description: The deletion message.
+                type: string
+                example: 'Plan id 15 was successfully deleted.'
+    404:
+      $ref: '#/components/responses/404_ModelNotFound'

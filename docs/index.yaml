@@ -22,10 +22,8 @@ x-tagGroups:
     tags:
       - Auth
       - Users
-  - name: Institution
-    tags:
-      - Institution
-  - name: Plan
+  - name: Content
     tags:
       - Plan
+      - Institution
 

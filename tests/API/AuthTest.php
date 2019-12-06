@@ -1,34 +1,28 @@
 <?php
 
-namespace Tests\API\Auth;
+namespace Tests\API;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Tests\APIStatelessTestCase;
 
-/**
- * Class AuthTest.
- *
- * @author Mathieu Bour <mathieu@mathrix.fr>
- * @copyright Mathrix Education SA.
- * @since 5.0.0-rc1
- */
-class AuthLoginTest extends APIStatelessTestCase
+class AuthTest extends APIStatelessTestCase
 {
     /**
      * POST /auth/login
      */
     public function testLogin(): void
     {
-        $user = User::random();
-        $oldHash = $user->password; // Save the current hash for revert after the test
-        $newPassword = $this->faker->password;
-        $user->password = $newPassword;
+        $user           = User::random();
+        $oldHash        = $user->password; // Save the current hash for revert after the test
+        $password       = $this->faker->password;
+        $user->password = Hash::make($password);
         $user->save();
 
         $this->json("post", "/auth/login", [
-            "email" => $user->email,
-            "password" => $newPassword
+            "email"    => $user->email,
+            "password" => $password,
         ]);
 
         $this->assertResponseOk();
@@ -40,7 +34,6 @@ class AuthLoginTest extends APIStatelessTestCase
             ->update(["password" => $oldHash]);
     }
 
-
     /**
      * POST /auth/login
      */
@@ -49,11 +42,10 @@ class AuthLoginTest extends APIStatelessTestCase
         $user = User::random();
 
         $this->json("post", "/auth/login", [
-            "email" => $user->email,
-            "password" => "incorrect-password"
+            "email"    => $user->email,
+            "password" => "incorrect-password",
         ]);
 
         $this->assertResponseStatus(401);
-        $this->assertOpenAPIResponse($this->response);
     }
 }

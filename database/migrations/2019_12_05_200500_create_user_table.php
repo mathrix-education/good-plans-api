@@ -19,6 +19,7 @@ class CreateUserTable extends Migration
             $table->string('firstname')->nullable();
             $table->string('email');
             $table->string('password');
+            $table->string('scopes')->default('[]');
             $table->timestamp('birthdate')->nullable();
             $table->string('city')->nullable();
             $table->json('universities')->nullable();

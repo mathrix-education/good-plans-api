@@ -1,1 +1,0 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":130:{a:2:{s:7:"defects";a:1:{s:29:"Tests\API\PlansTest::testRate";i:3;}s:5:"times";a:1:{s:29:"Tests\API\PlansTest::testRate";d:5.471;}}}
