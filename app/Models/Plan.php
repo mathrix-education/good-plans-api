@@ -61,9 +61,13 @@ class Plan extends BaseModel
         return $this->hasMany(Rating::class);
     }
 
-    public function getRatingMeanAttribute(): float
+    public function getRatingMeanAttribute(): ?float
     {
         $ratings = $this->ratings()->get(['value'])->pluck('value');
+
+        if ($ratings->count() === 0) {
+            return null;
+        }
 
         return round($ratings->sum() / $ratings->count(), 2);
     }

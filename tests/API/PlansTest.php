@@ -26,9 +26,6 @@ class PlansTest extends APIStatelessTestCase
     public function testRate()
     {
         $planId = Plan::random()->id;
-        $user   = User::random();
-
-        JWT::actingAs($user);
 
         $this->json('post', "/plans/$planId/rate", [
             'value' => 3,
