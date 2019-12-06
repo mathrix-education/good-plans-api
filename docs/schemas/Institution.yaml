@@ -1,0 +1,34 @@
+description: Institution
+type: object
+required: [id, name, description, cities, created_at, updated_at]
+properties:
+  id:
+    description: The institution id.
+    type: integer
+    readOnly: true
+    example: 24
+  name:
+    description: The institution name.
+    type: string
+    example: SNCF
+    nullable: true
+  firstname:
+    description: The institution description.
+    type: string
+    example: La SNCF propose des billets de trains et de RER.
+    nullable: true
+  cities:
+    description: The institution cities location.
+    type: array
+    items:
+      type: string
+  created_at:
+    description: The date/time when the object was created.
+    type: string
+    format: date-time
+    readOnly: true
+  updated_at:
+    description: The date/time when the object was updated.
+    type: string
+    format: date-time
+    readOnly: true

@@ -1,0 +1,16 @@
+$extends:
+  ../../fragments/paths/get_{modelId}.yaml:
+    model: plan
+  ../../fragments/paths/patch_{modelId}.yaml:
+    model: plan
+  ../../fragments/paths/delete_{modelId}.yaml:
+    model: plan
+get:
+  description: >
+    Get a plan by its id.
+  responses:
+    401:
+      $ref: '#/components/responses/401_Unauthorized'
+patch:
+  description: >
+    Patch a plan by its id.

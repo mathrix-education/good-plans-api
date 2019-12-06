@@ -1,0 +1,32 @@
+description: Rating
+type: object
+properties:
+  id:
+    description: The rating id.
+    type: integer
+    readOnly: true
+    example: 24
+  value:
+    description: The rating value.
+    type: integer
+    min: 0
+    max: 5
+    example: 3
+  plan_id:
+    description: The related plan id.
+    type: integer
+    example: 25
+  user_id:
+    description: The related user id.
+    type: integer
+    example: 25
+  created_at:
+    description: The date/time when the object was created.
+    type: string
+    format: date-time
+    readOnly: true
+  updated_at:
+    description: The date/time when the object was updated.
+    type: string
+    format: date-time
+    readOnly: true

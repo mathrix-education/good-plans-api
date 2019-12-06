@@ -1,0 +1,67 @@
+description: Plan
+type: object
+required: [id, title,institution_id, starting_at, ending_at, cities, categories, created_at, updated_at]
+properties:
+  id:
+    description: The user id.
+    type: integer
+    readOnly: true
+    example: 24
+  title:
+    description: The plan title.
+    type: string
+    example: Carte Jeune SNCF
+  description:
+    description: The plan description
+    type: string
+    example: Profitez de réduction sur les billets de trains !
+  link:
+    description: An URL which gives additionnal details for the plan
+    type: string
+    example: https://www.oui.sncf/train/carte-abonnement-train/jeune
+  institution_id:
+    description: The institution which post the plan.
+    type: string
+    example: SNCF
+  city:
+    description: The cities where the plan is available
+    type: string
+    example: Paris
+  category:
+    description: The categories related to the plan
+    type: string
+    example: Logement
+  starting_at:
+    description: The starting date of the plan
+    type: string
+    format: date-time
+  ending_at:
+    description: The ending date of the plan
+    type: string
+    format: date-time
+  age_min:
+    description: The minimum age.
+    type: integer
+    example: 18
+  age_max:
+    description: The maximum age.
+    type: integer
+    example: 25
+  created_at:
+    description: The date/time when the object was created.
+    type: string
+    format: date-time
+    readOnly: true
+  updated_at:
+    description: The date/time when the object was updated.
+    type: string
+    format: date-time
+    readOnly: true
+  video_id:
+    description: The video link describing the procedure to subscribe to the plan
+    type: string
+  university:
+    description: The university, if any
+    type: string
+    example: Paris Sud III
+    nullable: true

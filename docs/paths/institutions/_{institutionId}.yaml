@@ -1,0 +1,16 @@
+$extends:
+  ../../fragments/paths/get_{modelId}.yaml:
+    model: institution
+  ../../fragments/paths/patch_{modelId}.yaml:
+    model: institution
+  ../../fragments/paths/delete_{modelId}.yaml:
+    model: institution
+get:
+  description: >
+    Get a institution by its id.
+  responses:
+    401:
+      $ref: '#/components/responses/401_Unauthorized'
+patch:
+  description: >
+    Patch a institution by its id.
