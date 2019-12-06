@@ -76,6 +76,10 @@ class Plan extends BaseModel
     {
         $ratings = $this->ratings()->get(['value'])->pluck('value');
 
+        if ($ratings->count() == 0) {
+            return null;
+        }
+
         return round($ratings->sum() / $ratings->count(), 2);
     }
 }
