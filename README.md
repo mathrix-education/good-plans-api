@@ -2,16 +2,11 @@
 
 Mathrix Good Plan REST API, based on the [Lumen framework](https://lumen.laravel.com/), edited by [Laravel](https://laravel.com/).
 
-| Environment | Documentation | Version |
-|-------------|-----|---------|
-| master | [api.good-plans.mathrix.fr](https://api.good-plans.mathrix.fr) | [![Development API version][master-version-img]][master-version-link] |
-| dev | [dev.api.good-plans.mathrix.fr](https://dev.api.good-plans.mathrix.fr) | [![Development API version][dev-version-img]][dev-version-link] |
+| Environment | Documentation                   |
+|-------------|---------------------------------|
+| dev         | [dev.api.good-plans.mathrix.fr] |
+| master      | [api.good-plans.mathrix.fr]     |
 
-
-[master-version-img]: https://api.mathrixdrive.fr/badges/version "Production API version"
-[master-version-link]: https://github.com/mathrix-education/drive-api/tree/master
-[dev-version-img]: https://dev.api.mathrixdrive.fr/badges/version "Development API version"
-[dev-version-link]: https://github.com/mathrix-education/drive-api/tree/dev
 
 ## Contributors
 
@@ -21,32 +16,39 @@ Mathrix Good Plan REST API, based on the [Lumen framework](https://lumen.laravel
 ### Database
 
 The linked database is based on [mysql/mysql-server][mysql-repo]
-To run migrations and seed your own database, you first have to write a .env file following the .env.example file in the root path of the project.
+To run migrations and seed your own database, you first have to write a
+.env file following the .env.example file in the root path of the
+project.
+
 Then, run 
 
 ```bash
 php artisan migrate --seed 
 ```
 
-The whole database will be generated and filled with mocked data, in order to run functionnal test.
+The whole database will be generated and filled with mocked data, in
+order to run functional test.
 
 [mysql-repo]: https://github.com/mysql/mysql-server
 
 ### Documentation
 
-The documentation is based on the [OpenAPI specification v3.0.2][openapi-spec]. The sources files of the documentation
-are located in the `docs/` folder and split across several files. In order to build the actual YAML specification, run
+The documentation is based on the
+[OpenAPI specification v3.0.2][openapi-spec]. The sources files of the
+documentation are located in the `docs/` folder and split across several
+files. In order to build the actual YAML specification, run
 
 ```bash
 composer docs:compile
 ```
 
-The documentation render process uses [Redocly/redoc][redoc-repo], a node-based OpenAPI renderer. In order to render the
-documentation, just run:
+The documentation render process uses [Redocly/redoc][redoc-repo], a
+node-based OpenAPI renderer. In order to render the documentation, just
+run:
 
 ```bash
-npm run docs:serve   # serve the documentation on localhost:8080
-npm run docs:bundle  # bundle the documetation into resources/views/docs/index.html
+npx redoc-cli serve docs/output.yaml # serve the documentation on localhost:8080
+npx redoc-cli bundle docs/output.yaml -o resources/views/docs/index.html # bundle the documentation into resources/views/docs/index.html
 ```
 
 [openapi-spec]: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md
@@ -73,16 +75,18 @@ composer test:cov  # runs tests with code-coverage enable
 
 ### Deployment
 
-This project is compiled inside a docker container and deployed through a pipeline using Github Actions.
+This project is compiled inside a Docker container and deployed through
+a pipeline using Github Actions.
 
-
-To generate the corresponding docker image, run in root path
+To generate the corresponding Docker image, run in root path
 
 ```bash
-docker build -t good-planAPI .
+docker build -t good-plan-api:latest .
 ```
 
-Before running the image, make sure you have the following informations. Also, don't forget to seed your database.
+Before running the image, make sure you have the following environment
+variable set.
+Also, don't forget to seed your database.
 
 | Variable | Value | Default |
 |----------|-------|---------|
@@ -96,7 +100,13 @@ Before running the image, make sure you have the following informations. Also, d
 Then, to run the image 
 
 ```bash
-docker run -i good-planAPI good-planAPI -e "DB_CONNECTION=$db_connection" -e "DB_HOST=$db_host" -e "DB_DATABASE=$db_database" -e "DB_USERNAME=$db_username" -e "DB_PASSWORD=$db_password" -e "DB_PORT=$db_port"
+docker run good-plans-api:latest \
+  -e "DB_CONNECTION=$db_connection" \
+  -e "DB_HOST=$db_host" \
+  -e "DB_DATABASE=$db_database" \
+  -e "DB_USERNAME=$db_username" \
+  -e "DB_PASSWORD=$db_password" \
+  -e "DB_PORT=$db_port"
 ```
 
-This image will be listen by default on port 8080
+This image will be listen on port 8080 by default.

@@ -36,7 +36,7 @@
     "phpunit/phpunit": "^8.0",
     "mockery/mockery": "^1.0",
     "mathrix/openapi-assertions": "0.11.0",
-    "mathrix/openapi-processor": "0.9.7"
+    "mathrix/openapi-processor": "1.0.2"
   },
   "autoload": {
     "classmap": [
@@ -70,6 +70,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:mathrix-education/openapi-processor.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:mathrix-education/coding-standard.git"
     }
   ],
   "config": {
