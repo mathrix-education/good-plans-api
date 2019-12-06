@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Console\Kernel;
 use App\Exceptions\Handler;
 use Barryvdh\Cors\HandleCors;
+use Barryvdh\Cors\ServiceProvider as CorsServiceProvider;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\ServiceProvider;
@@ -37,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(PolicyServiceProvider::class);
         $this->app->register(RegistrarServiceProvider::class);
 
+        $this->app->register(CorsServiceProvider::class);
         $this->app->register(JWTAuthServiceProvider::class);
     }
 }
