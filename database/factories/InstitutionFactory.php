@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\Models\Institution;
 use Faker\Generator;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -12,11 +13,12 @@ use Illuminate\Database\Eloquent\Factory;
  */
 
 $factory->define(Institution::class, static function (Generator $faker) {
-    [$createdAt, $updatedAt] = timestamps();
 
     return [
         'name'          => $faker->word,
         'description'   => $faker->text,
-        'city'          => $faker->city,
+        'cities'        => $faker->words($faker->numberBetween(1,5)),
+        'created_at'    => $faker->dateTime,
+        'updated_at'    => $faker->dateTime,
     ];
 });

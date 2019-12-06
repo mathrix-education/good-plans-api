@@ -1,0 +1,5 @@
+versionFrom: '../composer.json#version'
+defaultTagGroup: Miscellaneous
+requestBodies: []
+responses: []
+schemas: []

@@ -22,7 +22,7 @@ COPY deploy/php.ini /etc/php7/php.ini
 # Setup document root
 RUN mkdir -p /var/www
 
-# Make sure files/folders needed by the processes are accessable when they run under the nobody user
+# Make sure files/folders needed by the processes are accessable when they run under the nobody users
 RUN chown -R nobody.nobody /run && \
     chown -R nobody.nobody /var/lib/nginx && \
     chown -R nobody.nobody /var/tmp/nginx && \
@@ -33,7 +33,7 @@ RUN chown -R nobody.nobody /run && \
 COPY deploy/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Switch to use a non-root user from here on
+# Switch to use a non-root users from here on
 USER nobody
 
 WORKDIR /var/www

@@ -1,0 +1,31 @@
+openapi: 3.0.2
+info:
+  title: Mathrix Team Good Plan API
+  description: This is the official documentation of Mathrix Team Good Plan API.
+  contact:
+    name: Valentin Pollart
+    email: valentin@mathrix.fr
+servers:
+  - url: 'https://mathrix.goodplan.fr/api'
+    description: The production API.
+  - url: 'https://dev.mathrix.goodplan.fr/api'
+    description: The development API.
+components:
+  securitySchemes:
+    bearer:
+      description: The standard users authorizations.
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+x-tagGroups:
+  - name: Users
+    tags:
+      - Auth
+      - Users
+  - name: Institution
+    tags:
+      - Institution
+  - name: Plan
+    tags:
+      - Plan
+

@@ -13,17 +13,18 @@ class CreatePlanTable extends Migration
      */
     public function up()
     {
-        Schema::create('plan', function (Blueprint $table) {
+        Schema::create('plans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->text('description');
-            $table->string('link');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('link')->nullable();
             $table->unsignedBigInteger('institution_id');
-            $table->timestamp('ending_at');
-            $table->string('locations');
-            $table->string('categories');
+            $table->date('starting_at')->nullable();
+            $table->date('ending_at')->nullable();
+            $table->json('cities');
+            $table->json('categories');
             $table->json('filters');
-            $table->string('video_id');
+            $table->string('video_id')->nullable();
             $table->timestamps();
 
             // Foreign keys

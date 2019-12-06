@@ -13,11 +13,11 @@ class CreateInstitutionTable extends Migration
      */
     public function up()
     {
-        Schema::create('institution', function (Blueprint $table) {
+        Schema::create('institutions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
-            $table->string('city');
+            $table->json('cities');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateInstitutionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('institution');
+        Schema::dropIfExists('institutions');
     }
 }

@@ -1,0 +1,43 @@
+$extends:
+  ../../fragments/paths/index.yaml:
+    model: plan
+post:
+  summary: Register
+  description: Create a new plan.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required: [title, institution_id, cities, categories]
+          properties:
+            title:
+              description: The plan title.
+              type: string
+              example: Carte Jeune SNCF
+            institution_id:
+              description: The institution which post the plan.
+              type: string
+              example: SNCF
+            cities:
+              description: The cities where the plan is available
+              type: array
+              items:
+                type: string
+            categories:
+              description: The categories related to the plan
+              type: array
+              items:
+                type: string
+  responses:
+    200:
+      description: The newly created plan.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              data:
+                $ref: '#/components/schemas/Plan'

@@ -32,7 +32,9 @@
   "require-dev": {
     "fzaninotto/faker": "^1.4",
     "phpunit/phpunit": "^8.0",
-    "mockery/mockery": "^1.0"
+    "mockery/mockery": "^1.0",
+    "mathrix/openapi-assertions": "0.10.4",
+    "mathrix/openapi-processor": "0.9.7"
   },
   "autoload": {
     "classmap": [
@@ -58,11 +60,22 @@
     {
       "type": "vcs",
       "url": "git@github.com:mathrix-education/lumen-zero.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:mathrix-education/openapi-assertions.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:mathrix-education/openapi-processor.git"
     }
   ],
   "config": {
     "preferred-install": "dist",
     "sort-packages": true,
     "optimize-autoloader": true
+  },
+  "scripts": {
+    "compile:docs": "openapi-processor --input=docs/index.yaml"
   }
 }

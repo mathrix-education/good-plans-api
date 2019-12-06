@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Registrars;
 
+use App\Controllers\AuthController;
 use Mathrix\Lumen\Zero\Registrars\BaseRegistrar;
 
 class AuthRegistrar extends BaseRegistrar
@@ -14,6 +15,7 @@ class AuthRegistrar extends BaseRegistrar
     public function register(): void
     {
         $controller = AuthController::class;
-        $this->post('auth/login', '');
+        $this->post('auth/login', "$controller@login");
+        $this->post('auth/forgot', "$controller@forgot");
     }
 }

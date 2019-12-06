@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Mathrix\Lumen\Zero\Models\BaseModel;
-use phpDocumentor\Reflection\Location;
 
 
 /**
@@ -13,15 +13,16 @@ use phpDocumentor\Reflection\Location;
  * @property string|null    $description
  * @property string|null    $link
  * @property int|null       $institution_id
- * @property Carbon         $ending_at
- * @property string|null    $locations
- * @property string|null    $categories
+ * @property Carbon|null    $starting_at
+ * @property Carbon|null    $ending_at
+ * @property array          $cities
+ * @property array          $categories
  * @property array          $filters
  * @property string|null    $video_id
  * @property Carbon         $created_at
  * @property Carbon         $updated_at
  * ---
- * @property Institution    $institution
+ * @property Institution    $institutions
  */
 class Plan extends BaseModel
 {
@@ -39,6 +40,18 @@ class Plan extends BaseModel
         'categories',
         'filters',
         'video_id',
+    ];
+
+    protected $attributes = [
+        'cities'        => '[]',
+        'filters'       => '[]',
+        'categories'    => '[]'
+    ];
+
+    protected $casts = [
+        'cities'        => 'array',
+        'categories'    => 'array',
+        'filters'       => 'array',
     ];
 
     /**

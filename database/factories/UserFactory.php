@@ -14,14 +14,16 @@ use Illuminate\Database\Eloquent\Factory;
  */
 
 $factory->define(User::class, static function (Generator $faker) {
-    [$createdAt, $updatedAt] = timestamps();
 
     return [
         'email'         => $faker->email,
         'firstname'     => $faker->firstName,
         'lastname'      => $faker->lastName,
+        'password'      => $faker->password,
         'city'          => $faker->city,
-        'universities'  => $faker->sentence,
-        'birth_date'    => $faker->dateTime,
+        'universities'  => $faker->words($faker->numberBetween(0,5)),
+        'birthdate'    => $faker->dateTime,
+        'created_at'    => $faker->dateTime,
+        'updated_at'    => $faker->dateTime,
     ];
 });
