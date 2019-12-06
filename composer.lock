@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cab7641a4976baaa07db83ebdc71cd16",
+    "content-hash": "e73960f3ba3d84a99e04086cce0e3d8c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4742,6 +4742,60 @@
             "time": "2019-12-04T11:20:26+00:00"
         },
         {
+            "name": "dflydev/fig-cookies",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dflydev/dflydev-fig-cookies.git",
+                "reference": "a59857139b9e30978b5b802b3631b5eaf34e8c66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dflydev/dflydev-fig-cookies/zipball/a59857139b9e30978b5b802b3631b5eaf34e8c66",
+                "reference": "a59857139b9e30978b5b802b3631b5eaf34e8c66",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": "^7.2",
+                "psr/http-message": "^1"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^4",
+                "phpstan/phpstan": "^0.10.1",
+                "phpunit/phpunit": "^7.2.6",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dflydev\\FigCookies\\": "src/Dflydev/FigCookies"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com"
+                }
+            ],
+            "description": "Cookies for PSR-7 HTTP Message Interface.",
+            "keywords": [
+                "cookies",
+                "psr-7",
+                "psr7"
+            ],
+            "time": "2018-07-11T06:54:37+00:00"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.3.0",
             "source": {
@@ -4960,23 +5014,24 @@
             "time": "2019-09-25T14:49:45+00:00"
         },
         {
-            "name": "lezhnev74/openapi-psr7-validator",
-            "version": "0.16",
+            "name": "league/openapi-psr7-validator",
+            "version": "0.3.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/lezhnev74/openapi-psr7-validator.git",
-                "reference": "501a09b017872c254e1decc454934846bf0fbc33"
+                "url": "https://github.com/thephpleague/openapi-psr7-validator.git",
+                "reference": "5916227459c2552bc0f2f549efdb51081be1ba62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lezhnev74/openapi-psr7-validator/zipball/501a09b017872c254e1decc454934846bf0fbc33",
-                "reference": "501a09b017872c254e1decc454934846bf0fbc33",
+                "url": "https://api.github.com/repos/thephpleague/openapi-psr7-validator/zipball/5916227459c2552bc0f2f549efdb51081be1ba62",
+                "reference": "5916227459c2552bc0f2f549efdb51081be1ba62",
                 "shasum": ""
             },
             "require": {
                 "cebe/php-openapi": "^1.2",
+                "dflydev/fig-cookies": "^2.0",
                 "ext-json": "*",
-                "php": ">=7.1",
+                "php": ">=7.2",
                 "psr/cache": "^1.0",
                 "psr/http-message": "^1.0",
                 "psr/http-server-middleware": "^1.0",
@@ -5000,46 +5055,38 @@
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Dmitry Lezhnev",
-                    "email": "lezhnev.work@gmail.com",
-                    "homepage": "https://github.com/lezhnev74/openapi-psr7-validator",
-                    "role": "Developer"
-                }
-            ],
             "description": "Validate PSR-7 messages against OpenAPI (3.0.2) specifications expressed in YAML or JSON",
-            "homepage": "https://github.com/lezhnev74/openapi-psr7-validator",
+            "homepage": "https://github.com/thephpleague/openapi-psr7-validator",
             "keywords": [
                 "http",
                 "openapi",
                 "psr7",
                 "validation"
             ],
-            "abandoned": "league/openapi-psr7-validator",
-            "time": "2019-08-23T08:58:25+00:00"
+            "time": "2019-10-11T11:54:24+00:00"
         },
         {
             "name": "mathrix/openapi-assertions",
-            "version": "0.10.4",
+            "version": "0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mathrix-education/openapi-assertions.git",
-                "reference": "7c20adca90170ee848f9a8d2df07659702c187e5"
+                "reference": "1873644acdaed1897d6a626aeb0d5c3bcf078f5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mathrix-education/openapi-assertions/zipball/7c20adca90170ee848f9a8d2df07659702c187e5",
-                "reference": "7c20adca90170ee848f9a8d2df07659702c187e5",
+                "url": "https://api.github.com/repos/mathrix-education/openapi-assertions/zipball/1873644acdaed1897d6a626aeb0d5c3bcf078f5a",
+                "reference": "1873644acdaed1897d6a626aeb0d5c3bcf078f5a",
                 "shasum": ""
             },
             "require": {
-                "lezhnev74/openapi-psr7-validator": "^0.16",
+                "league/openapi-psr7-validator": "^0.3.2",
                 "php": ">=7.1",
                 "phpunit/phpunit": "^7.0 || ^8.0"
             },
             "require-dev": {
                 "laravel/lumen-framework": " 5.7.* || 5.8.* || ^6.0",
+                "mathrix/coding-standard": "0.9.1",
                 "nyholm/psr7": "^1.1",
                 "symfony/psr-http-message-bridge": "^1.2"
             },
@@ -5053,6 +5100,17 @@
                     "Mathrix\\OpenAPI\\Assertions\\": "src"
                 }
             },
+            "scripts": {
+                "lint": [
+                    "phpcs --report=source"
+                ],
+                "lint:details": [
+                    "phpcs"
+                ],
+                "lint:fix": [
+                    "phpcbf"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -5064,7 +5122,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Validate PSR-7 requests against OpenAPI specification. Heavily based on lezhnev74/openapi-psr7-validator.",
+            "description": "Validate PSR-7 requests against OpenAPI specification. Heavily based on league/openapi-psr7-validator.",
             "homepage": "https://github.com/mathrix-education/openapi-assertions",
             "keywords": [
                 "assertions",
@@ -5078,7 +5136,7 @@
                 "wiki": "https://github.com/mathrix-education/openapi-processor/wiki",
                 "source": "https://github.com/mathrix-education/openapi-processor"
             },
-            "time": "2019-09-08T02:51:29+00:00"
+            "time": "2019-10-05T00:04:07+00:00"
         },
         {
             "name": "mathrix/openapi-processor",
